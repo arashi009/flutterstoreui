@@ -7,8 +7,41 @@ import 'package:flutterstoreui/pages/cart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Shop extends StatelessWidget {
+class Shop extends StatefulWidget {
   const Shop({super.key});
+
+  @override
+  State<Shop> createState() => _ShopState();
+}
+
+class _ShopState extends State<Shop> {
+  void addToCart(ArtPiece ap) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(ap);
+
+    void Function() onPressed;
+
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              backgroundColor: Color.fromARGB(255, 147, 151, 186),
+              title: Text(
+                "Sucess",
+                style: TextStyle(color: Colors.white),
+              ),
+              content:
+                  Text("added to cart", style: TextStyle(color: Colors.white)),
+              actions: [
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  color: Colors.indigo,
+                  textColor: Colors.white,
+                  child: Text("Okay"),
+                ),
+              ],
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +85,10 @@ class Shop extends StatelessWidget {
                       itemCount: value.gallery.length,
                       itemBuilder: (context, index) {
                         ArtPiece ap = value.getGallery()[index];
-                        return ArtTile(artPiece: ap);
+                        return ArtTile(
+                          artPiece: ap,
+                          onTap: () => addToCart(ap),
+                        );
                       }),
                 )
               ],

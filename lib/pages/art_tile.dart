@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutterstoreui/models/artpiece.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ArtTile extends StatelessWidget {
   final ArtPiece artPiece;
-  ArtTile({super.key, required this.artPiece});
+  final void Function()? onTap;
+  ArtTile({super.key, required this.artPiece, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,13 +53,17 @@ class ArtTile extends StatelessWidget {
             ),
 // gap
 // add to cart button
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-              child: Text(
-                "Add to cart",
-                style: TextStyle(fontSize: 20),
+            GestureDetector(
+              onTap: onTap,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20)),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                child: Text(
+                  "Add to cart",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             )
           ],

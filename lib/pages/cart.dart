@@ -34,12 +34,12 @@ class Cart extends ChangeNotifier {
         price: "\$1.99",
         img: "lib/images/img6.jpeg"),
     ArtPiece(
-        name: "Night Walk",
+        name: "Inazuma",
         artist: "kazuha",
         price: "\$0.99",
         img: "lib/images/img7.jpeg"),
     ArtPiece(
-        name: "The Congregate",
+        name: "Marleybone",
         artist: "haruki",
         price: "\$3.00",
         img: "lib/images/img8.jpeg"),
@@ -56,6 +56,11 @@ class Cart extends ChangeNotifier {
 
   void removeFromCart(ArtPiece ap) {
     userCart.remove(ap);
+    notifyListeners();
+  }
+
+  void emptyCart() {
+    userCart = [];
     notifyListeners();
   }
 }
