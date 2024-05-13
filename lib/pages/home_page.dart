@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field
-
 import 'package:flutter/material.dart';
 import 'package:flutterstoreui/pages/cart_page.dart';
 import 'package:flutterstoreui/pages/info_page.dart';
@@ -17,15 +15,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  final List _pages = [Shop(), CartPage()];
+  final List _pages = [const Shop(), const CartPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 147, 151, 186),
+      backgroundColor: const Color.fromARGB(255, 147, 151, 186),
       appBar: AppBar(
         leading: Builder(builder: (context) {
           return IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
@@ -37,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             child: GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => InfoPage()));
+                    MaterialPageRoute(builder: (context) => const InfoPage()));
               },
               child: Text("Cyclone",
                   style: GoogleFonts.philosopher(
@@ -47,6 +45,13 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
+        actions: [
+          GestureDetector(
+              onTap: () => setState(() {
+                    _selectedIndex = 1;
+                  }),
+              child: const Icon(Icons.shopping_cart))
+        ],
       ),
       bottomNavigationBar: GNav(
         selectedIndex: _selectedIndex,
@@ -72,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 121, 126, 168),
+        backgroundColor: const Color.fromARGB(255, 121, 126, 168),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -94,9 +99,9 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     iconColor: Colors.white,
                     textColor: Colors.white,
-                    tileColor: Color.fromARGB(255, 121, 126, 168),
-                    leading: Icon(Icons.home),
-                    title: Text("Home"),
+                    tileColor: const Color.fromARGB(255, 121, 126, 168),
+                    leading: const Icon(Icons.home),
+                    title: const Text("Home"),
                     onTap: () {
                       setState(() {
                         _selectedIndex = 0;
@@ -110,9 +115,9 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     iconColor: Colors.white,
                     textColor: Colors.white,
-                    tileColor: Color.fromARGB(255, 121, 126, 168),
-                    leading: Icon(Icons.shopping_cart),
-                    title: Text("Cart"),
+                    tileColor: const Color.fromARGB(255, 121, 126, 168),
+                    leading: const Icon(Icons.shopping_cart),
+                    title: const Text("Cart"),
                     onTap: () {
                       setState(() {
                         _selectedIndex = 1;
@@ -126,12 +131,14 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     iconColor: Colors.white,
                     textColor: Colors.white,
-                    tileColor: Color.fromARGB(255, 121, 126, 168),
-                    leading: Icon(Icons.info_outline),
-                    title: Text("About"),
+                    tileColor: const Color.fromARGB(255, 121, 126, 168),
+                    leading: const Icon(Icons.info_outline),
+                    title: const Text("About"),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => InfoPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const InfoPage()));
                     },
                   ),
                 ),
@@ -141,15 +148,17 @@ class _HomePageState extends State<HomePage> {
               children: [
                 ListTile(
                   iconColor: Colors.white,
-                  tileColor: Color.fromARGB(255, 121, 126, 168),
+                  tileColor: const Color.fromARGB(255, 121, 126, 168),
                   textColor: Colors.white,
-                  leading: Icon(Icons.logout),
-                  title: Text("Logout"),
+                  leading: const Icon(Icons.logout),
+                  title: const Text("Logout"),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.pop(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => IntroPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const IntroPage()));
                   },
                 )
               ],

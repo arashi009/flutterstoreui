@@ -1,9 +1,5 @@
-// ignore: file_names
-// ignore_for_file: prefer_const_constructors
-
 import "package:flutter/material.dart";
 import "package:flutterstoreui/models/artpiece.dart";
-import "package:flutterstoreui/pages/art_tile.dart";
 import "package:flutterstoreui/pages/cart.dart";
 import "package:flutterstoreui/pages/cart_tile.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -44,17 +40,21 @@ class CartPage extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: ((context) => AlertDialog(
-                                title: Text("Successfully checked out"),
-                                content: Text("Check your bank account :)"),
+                                title: const Text(
+                                  "Successfully checked out",
+                                  textAlign: TextAlign.center,
+                                ),
+                                content:
+                                    const Text("Check your bank account :)"),
                                 actions: [
                                   MaterialButton(
                                     onPressed: () {
                                       value.emptyCart();
                                       (Navigator.pop(context));
                                     },
-                                    color: Colors.indigo,
+                                    color: Color.fromARGB(255, 147, 151, 186),
                                     textColor: Colors.white,
-                                    child: Text("Okay"),
+                                    child: const Text("Okay"),
                                   )
                                 ],
                                 backgroundColor: Colors.white,
@@ -70,8 +70,7 @@ class CartPage extends StatelessWidget {
                         child: Center(
                             child: Text(
                           "Checkout",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.poppins(fontSize: 15),
                         )),
                       ),
                     ),

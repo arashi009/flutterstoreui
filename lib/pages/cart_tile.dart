@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:flutterstoreui/models/artpiece.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,13 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 class CartTile extends StatelessWidget {
   final ArtPiece artPiece;
   final void Function()? onTap;
-  CartTile({super.key, required this.artPiece, required this.onTap});
+  const CartTile({super.key, required this.artPiece, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -30,15 +29,21 @@ class CartTile extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Text(artPiece.name),
+                  Text(
+                    artPiece.name,
+                    style: GoogleFonts.poppins(),
+                  ),
                 ],
               ),
               Row(
                 children: [
-                  Text(artPiece.price),
+                  Text(
+                    artPiece.price,
+                    style: GoogleFonts.poppins(),
+                  ),
                   GestureDetector(
                     onTap: onTap,
-                    child: Icon(
+                    child: const Icon(
                       Icons.delete,
                       color: Colors.red,
                     ),

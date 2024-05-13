@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutterstoreui/models/artpiece.dart';
 import 'package:flutterstoreui/pages/art_tile.dart';
 import 'package:flutterstoreui/pages/cart.dart';
@@ -18,26 +17,28 @@ class _ShopState extends State<Shop> {
   void addToCart(ArtPiece ap) {
     Provider.of<Cart>(context, listen: false).addItemToCart(ap);
 
-    void Function() onPressed;
-
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              backgroundColor: Color.fromARGB(255, 147, 151, 186),
+              // backgroundColor: const Color.fromARGB(255, 147, 151, 186),
+              backgroundColor: Colors.white,
               title: Text(
                 "Sucess",
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.poppins(color: Colors.black),
               ),
-              content:
-                  Text("added to cart", style: TextStyle(color: Colors.white)),
+              content: Text("added to cart",
+                  style: GoogleFonts.poppins(color: Colors.black)),
               actions: [
-                MaterialButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  color: Colors.indigo,
-                  textColor: Colors.white,
-                  child: Text("Okay"),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: MaterialButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    color: const Color.fromARGB(255, 147, 151, 186),
+                    textColor: Colors.white,
+                    child: const Text("Okay"),
+                  ),
                 ),
               ],
             ));
@@ -45,7 +46,6 @@ class _ShopState extends State<Shop> {
 
   @override
   Widget build(BuildContext context) {
-//    return Center(child: Text("Shop Page"));
     return Consumer<Cart>(
         builder: (context, value, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,8 +57,8 @@ class _ShopState extends State<Shop> {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextField(
                         decoration: InputDecoration(
                             icon: Icon(Icons.search),
@@ -72,11 +72,11 @@ class _ShopState extends State<Shop> {
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
-                    "Recommended for You:",
+                    "Recommended",
                     style: GoogleFonts.philosopher(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Expanded(

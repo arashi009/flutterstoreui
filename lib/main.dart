@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import "package:flutter/material.dart";
 import "package:flutterstoreui/pages/cart.dart";
 import "package:flutterstoreui/pages/intro_page.dart";
 import "package:provider/provider.dart";
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

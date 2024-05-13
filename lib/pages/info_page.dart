@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
@@ -13,9 +11,9 @@ class InfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 147, 151, 186),
+      backgroundColor: const Color.fromARGB(255, 147, 151, 186),
       appBar: AppBar(
-        title: Text("About"),
+        title: const Text("About"),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
       ),
@@ -30,7 +28,7 @@ class InfoPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            Divider(height: 1),
+            const Divider(height: 1),
             Text(
               about,
               style: GoogleFonts.philosopher(
@@ -47,7 +45,7 @@ class InfoPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            Divider(height: 1),
+            const Divider(height: 1),
             Text(
               arashi,
               style: GoogleFonts.philosopher(

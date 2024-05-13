@@ -1,13 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterstoreui/models/artpiece.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ArtTile extends StatelessWidget {
   final ArtPiece artPiece;
   final void Function()? onTap;
-  ArtTile({super.key, required this.artPiece, required this.onTap});
+  const ArtTile({super.key, required this.artPiece, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Padding(
