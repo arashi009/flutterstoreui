@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterstoreui/pages/cart_page.dart';
 import 'package:flutterstoreui/pages/info_page.dart';
+import 'package:flutterstoreui/pages/intro_page.dart';
 import 'package:flutterstoreui/pages/shop.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -141,6 +142,8 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => IntroPage()));
                   },
                 )
               ],

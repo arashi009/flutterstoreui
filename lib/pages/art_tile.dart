@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutterstoreui/models/artpiece.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,7 +27,9 @@ class ArtTile extends StatelessWidget {
                 Text(artPiece.name,
                     style: GoogleFonts.philosopher(
                         fontSize: 30, color: Colors.white)),
-                Image.asset(artPiece.img, height: 300),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(artPiece.img, height: 300)),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 22.0, vertical: 10),
@@ -39,7 +42,8 @@ class ArtTile extends StatelessWidget {
                               color: Colors.white)),
                       Text(
                         artPiece.price,
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
