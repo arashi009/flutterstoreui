@@ -50,7 +50,7 @@ class Shop extends StatelessWidget {
               artPiece: ArtPiece(
                   name: "The Congregate",
                   img: 'lib/images/img1.jpeg',
-                  author: 'arashi',
+                  artist: 'arashi',
                   price: "\$0.99"),
             ),
           ),

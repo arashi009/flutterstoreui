@@ -33,7 +33,7 @@ class ArtTile extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Author: ${artPiece.author}",
+                      Text("Seller: ${artPiece.artist}",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
