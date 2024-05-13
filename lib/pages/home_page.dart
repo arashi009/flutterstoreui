@@ -34,9 +34,15 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Padding(
             padding: const EdgeInsets.only(right: 50.0),
-            child: Text("Typhoon",
-                style:
-                    GoogleFonts.philosopher(color: Colors.white, fontSize: 30)),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => InfoPage()));
+              },
+              child: Text("Cyclone",
+                  style: GoogleFonts.philosopher(
+                      color: Colors.white, fontSize: 30)),
+            ),
           ),
         ),
         backgroundColor: Colors.transparent,
